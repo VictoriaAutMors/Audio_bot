@@ -2,9 +2,9 @@
 
 ## Content
 * [Definition of crawler](#def)
-* [What do this program](#wdtp)
 * [Dependencies](#dependencies)
 * [How to run programs](#run)
+  * [Dataset assembling](#asm)
 
 # <a name="def"></a> Definition of telegram bot
 
@@ -36,7 +36,7 @@ pip3 install pytelegrambotapi
 
 1)First that we need to do is dataset assembling:
 
-## Dataset assembling
+## <a name="asm"></a> Dataset assembling
 Dataset assemles from audio records with 5 digits in it. We need to despite this audio to 5 audios with digits and put this wav's to current directories.
 To assemble the dataset we used to special programs for it:
 
