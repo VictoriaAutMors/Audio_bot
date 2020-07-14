@@ -5,12 +5,20 @@
 * [Dependencies](#dependencies)
 * [How to run programs](#run)
   * [Dataset assembling](#asm)
-
+  * [learn the model and execute bot](#bot)
 # <a name="def"></a> Definition of telegram bot
 
 Bots are simply Telegram accounts operated by software – not people – and they'll often have AI features. They can do anything – teach, play, search, broadcast, remind, connect, integrate with other services, or even pass commands to the Internet of Things.
 
 # <a name="dependencies"></a> Dependencies
+
+**Debian/Ubuntu/Mint**
+
+``` sudo apt-get install python3```
+
+**Fedora/CentOS**
+
+```sudo dnf install python3```
 
 #### librosa
 ```
@@ -34,8 +42,6 @@ pip3 install pytelegrambotapi
 
 # <a name="run"></a> How to run program
 
-1)First that we need to do is dataset assembling:
-
 ## <a name="asm"></a> Dataset assembling
 Dataset assemles from audio records with 5 digits in it. We need to despite this audio to 5 audios with digits and put this wav's to current directories.
 To assemble the dataset we used to special programs for it:
@@ -49,8 +55,7 @@ So, execute the your bot with telegram write text request(you receive message wi
 ```
 audio_digits_dataset_bot.py
 ```
-
-b) Then you need to split this audio. For this program exists program.
+Then you need to split this audio. For this program exists program.
 This program splits one audio with 5 digits to 5 with 1 digit. And pulling them to the current each other folder.
 ```
     python3 split_by_vad.py dataset/wav/1_2_3_4_5.wav 0.1 0.01 dataset/splitted/
@@ -58,7 +63,7 @@ This program splits one audio with 5 digits to 5 with 1 digit. And pulling them 
 First argument is depth of the human voice. Second argumaent is the step that we walk on the audio.
 
 
-2) Now, we have dataset and we have to learn the model and execute bot that recognizes digits.
+## <a name="bot"></a> learn the model and execute bot
 
 a)All code to execute model learning contains in ml.ipynb:
 ```
