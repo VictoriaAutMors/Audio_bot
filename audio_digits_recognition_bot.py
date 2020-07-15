@@ -41,7 +41,6 @@ def mask_compress(data):
     if data[-1] == 1:
         stop = len(data)
         segments.append(Segment(start, stop));
-    print("\nBad\n", start, stop, "\n")
     return segments
 
 def print_with_timeline(data, single_duration, units_name, row_limit):
@@ -70,7 +69,7 @@ def get_segments_energy(data, segment_duration):
 def get_vad_mask(data, threshold):
     vad_mask = np.zeros_like(data)
     for i in range(0, len(data)):
-        vad_mask[i] = data[i] > threshold
+        vad_mask[i] = (data[i] > threshold)
     return vad_mask
 
 def sec2samples(seconds, sample_rate):
@@ -101,7 +100,7 @@ def log(text):
 
 def vad(wav_file_path, user):
     segment_duration = 0.1
-    vad_threshold = 0.07
+    vad_threshold = 0.01
     sample_rate, audio = read(wav_file_path)
     segment_duration_samples = sec2samples(segment_duration, sample_rate)
     segments_energy = get_segments_energy(audio, segment_duration_samples)
@@ -147,7 +146,6 @@ def get_text_messages(message):
     user = message.from_user.id
     text = message.text
     log(f"User ({user}): {text}")
-
     bot.send_message(user,
         f"Пожалуйста отправьте голосовое сообщение с цифрой.")
 
